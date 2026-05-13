@@ -1,0 +1,12 @@
+project/
+│
+├── docker-compose.yml
+│
+├── frontend/
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── angular.json
+│
+├── backend/
+│   ├── Dockerfile
+│   ├── package.json

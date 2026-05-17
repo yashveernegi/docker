@@ -1,0 +1,24 @@
+services:
+  auth:
+    build:
+      context: .
+      dockerfile: ./auth/Dockerfile
+    environment:
+      - JWT_SECRET=my_super_secret_password_123
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./auth:/app
+      - ./common:/app/node_modules/@shared/common
+
+  users:
+    build:
+      context: .
+      dockerfile: ./users/Dockerfile
+    ports:
+      - "3002:3002"
+    environment:
+      - JWT_SECRET=my_super_secret_password_123
+    volumes:
+      - ./users:/app
+      - ./common:/app/node_modules/@shared/common

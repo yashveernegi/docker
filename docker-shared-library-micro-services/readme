@@ -1,0 +1,37 @@
+/full-stack-project
+├── common/              <-- The Shared Logic
+│   ├── package.json
+│   └── index.js
+├── auth/                <-- The Provider (Signs Tokens)
+│   ├── Dockerfile
+│   ├── package.json
+│   └── index.js
+├── users/               <-- The Consumer (Verifies Tokens)
+│   ├── Dockerfile
+│   ├── package.json
+│   └── index.js
+└── docker-compose.yml
+
+
+### Login API curl
+```
+curl --request POST \
+  --url http://localhost:3001/login \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: Requestly/1.0' \
+  --data '
+{
+  "email": "yash@yopmail.com",
+  "id": 1
+}
+'
+```
+
+
+### Profile API curl
+```
+curl --request GET \
+  --url http://localhost:3002/profile \
+  --header 'User-Agent: Requestly/1.0' \
+  --header 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ5YXNoQHlvcG1haWwuY29tIiwiaWF0IjoxNzc5MDMyMTE1LCJleHAiOjE3NzkwMzU3MTV9.WP-dU7u3GFm5zePKnK9cx67ohQztcFkteLqGsXPOsOo'
+  ```
